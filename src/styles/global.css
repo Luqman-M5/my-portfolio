@@ -1,1 +1,62 @@
 @import "tailwindcss";
+
+@theme {
+  --color-ink: #0f1115;     /* page background */
+  --color-panel: #171a21;   /* card / surface background */
+  --color-paper: #ece9e2;   /* primary text */
+  --color-mist: #a6a29a;    /* secondary / muted text */
+  --color-signal: #7c8cff;  /* the one accent color — use it sparingly */
+  --color-live: #6fcf97;    /* status-pill green, "shipped/live" only */
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+}
+
+/* Scroll reveal — toggled by src/scripts/reveal.js */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero terminal effects — pure CSS, no JS */
+.eyebrow-type {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  width: 0;
+  animation: type-on 1.6s steps(44, end) 0.5s forwards;
+}
+@keyframes type-on {
+  to { width: 44ch; }
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Accessibility: respect prefers-reduced-motion everywhere */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .eyebrow-type { width: auto; animation: none; }
+  .cursor-blink { animation: none; }
+}
