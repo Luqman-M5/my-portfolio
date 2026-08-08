@@ -1,0 +1,67 @@
+---
+// Contact is intentionally subtle here — just an email link, not a CTA section.
+---
+
+<section id="about" class="scroll-mt-28 px-6 py-20 border-t" style="border-color: var(--border);">
+  <div class="mx-auto max-w-5xl">
+
+    <p data-reveal class="font-mono text-xs uppercase tracking-widest mb-6" style="color: var(--accent);">
+      About
+    </p>
+
+    <div class="grid gap-10 md:grid-cols-[1.3fr_1fr]">
+
+      <div data-reveal style="transition-delay: 80ms;">
+        <h2 class="font-display text-2xl font-semibold sm:text-3xl" style="color: var(--ink);">
+          I care about what the data is actually saying.
+        </h2>
+        <p class="mt-5 leading-relaxed" style="color: var(--muted);">
+          I'm Luqman — a second-year CS student at Queen Mary University of London.
+          My work sits at the intersection of data analysis, research, and clear
+          communication: taking complex information and making it genuinely useful
+          for the person who has to act on it.
+        </p>
+        <p class="mt-4 leading-relaxed" style="color: var(--muted);">
+          I'm not currently looking for new roles — I'm heading to Hybrid in Bristol
+          in September 2026 for a 12-month research internship. But I'm always happy
+          to talk about data, projects, or anything else worth discussing.
+        </p>
+
+        <!-- Subtle contact — email only, no big CTA -->
+        <p class="mt-6 font-mono text-sm" style="color: var(--muted);">
+          Reach me at
+          <a
+            href="mailto:luqmanmuhammed007@duck.com"
+            class="transition-colors"
+            style="color: var(--accent);"
+            onmouseover="this.style.textDecoration='underline'"
+            onmouseout="this.style.textDecoration='none'"
+          >
+            luqmanmuhammed007@duck.com
+          </a>
+        </p>
+      </div>
+
+      <!-- Quick-facts card -->
+      <div
+        data-reveal
+        style="transition-delay: 160ms; background: var(--surface); border: 1px solid var(--border);"
+        class="self-start rounded-2xl p-6 flex flex-col gap-5"
+      >
+        {[
+          { label: "Currently",  value: "2nd year BSc Computer Science" },
+          { label: "University", value: "Queen Mary University of London" },
+          { label: "Year 1",     value: "78% — on track for First Class" },
+          { label: "Next",       value: "Research Intern · Hybrid, Bristol · Sept 2026" },
+          { label: "Based in",   value: "London, UK" },
+        ].map(({ label, value }) => (
+          <div>
+            <p class="font-mono text-xs uppercase tracking-widest mb-1" style="color: var(--muted);">{label}</p>
+            <p class="text-sm font-medium" style="color: var(--ink);">{value}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>

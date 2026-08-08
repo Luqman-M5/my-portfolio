@@ -1,0 +1,42 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="px-6 py-8 border-t" style="border-color: var(--border);">
+  <div
+    class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 font-mono text-xs sm:flex-row"
+    style="color: var(--muted);"
+  >
+    <p>Luqman Muhammed Kunju · {year}</p>
+    <div class="flex items-center gap-6">
+      <a
+        href="https://github.com/YOUR_USERNAME"
+        target="_blank"
+        rel="noreferrer"
+        class="transition-colors"
+        onmouseover="this.style.color='var(--ink)'"
+        onmouseout="this.style.color='var(--muted)'"
+      >
+        GitHub
+      </a>
+      <a
+        href="https://linkedin.com/in/YOUR_USERNAME"
+        target="_blank"
+        rel="noreferrer"
+        class="transition-colors"
+        onmouseover="this.style.color='var(--ink)'"
+        onmouseout="this.style.color='var(--muted)'"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="mailto:luqmanmuhammed007@duck.com"
+        class="transition-colors"
+        onmouseover="this.style.color='var(--ink)'"
+        onmouseout="this.style.color='var(--muted)'"
+      >
+        Email
+      </a>
+    </div>
+  </div>
+</footer>

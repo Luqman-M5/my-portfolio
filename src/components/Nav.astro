@@ -1,0 +1,127 @@
+---
+// EDIT: update links if you add/remove sections
+const links = [
+  { href: "#experience", label: "Experience" },
+  { href: "#education",  label: "Education"  },
+  { href: "#projects",   label: "Projects"   },
+  { href: "#skills",     label: "Skills"     },
+];
+---
+
+<header id="site-nav" class="nav-top">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+
+    <!-- Name: hidden when nav floats (via CSS) -->
+    <a
+      href="#top"
+      class="nav-name items-baseline font-display text-base font-semibold"
+      style="color: var(--ink);"
+    >
+      Luqman Muhammed Kunju
+    </a>
+
+    <!-- Nav links -->
+    <nav>
+      <ul class="flex items-center gap-6">
+        {links.map((l) => (
+          <li class="hidden sm:block">
+            <a
+              href={l.href}
+              class="font-mono text-sm transition-colors"
+              style="color: var(--muted);"
+              onmouseover="this.style.color='var(--ink)'"
+              onmouseout="this.style.color='var(--muted)'"
+            >
+              {l.label}
+            </a>
+          </li>
+        ))}
+
+        <!-- Dark / Light toggle -->
+        <li>
+          <button
+            id="theme-toggle"
+            aria-label="Toggle dark / light mode"
+            class="flex h-8 w-8 items-center justify-center rounded-full border transition-colors"
+            style="border-color: var(--border); color: var(--muted);"
+          >
+            <!-- Sun icon (shown in dark mode) -->
+            <svg id="icon-sun" class="hidden h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <!-- Moon icon (shown in light mode) -->
+            <svg id="icon-moon" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </li>
+
+        <!-- Resume: hidden when nav floats -->
+        <li class="nav-resume hidden sm:block">
+          <a
+            href="/resume.pdf"
+            download
+            class="rounded-full px-4 py-1.5 font-mono text-sm font-medium transition-opacity hover:opacity-80"
+            style="background: var(--accent); color: var(--bg);"
+          >
+            Resume
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // ── Floating pill on scroll ──────────────────────────────────────────
+  // Adds .nav-float when the user scrolls past 80px, reverts to .nav-top
+  // at the top. CSS in global.css handles the visual transition.
+  const nav = document.getElementById("site-nav");
+
+  function updateNav() {
+    if (!nav) return;
+    if (window.scrollY > 80) {
+      nav.classList.replace("nav-top", "nav-float");
+    } else {
+      nav.classList.replace("nav-float", "nav-top");
+    }
+  }
+
+  window.addEventListener("scroll", updateNav, { passive: true });
+  updateNav(); // run once on load
+
+  // ── Dark / Light toggle ──────────────────────────────────────────────
+  const btn   = document.getElementById("theme-toggle");
+  const sun   = document.getElementById("icon-sun");
+  const moon  = document.getElementById("icon-moon");
+  const html  = document.documentElement;
+
+  function applyTheme(dark) {
+    if (dark) {
+      html.classList.add("dark");
+      sun?.classList.remove("hidden");
+      moon?.classList.add("hidden");
+    } else {
+      html.classList.remove("dark");
+      sun?.classList.add("hidden");
+      moon?.classList.remove("hidden");
+    }
+  }
+
+  // Sync icon with current state on load
+  applyTheme(html.classList.contains("dark"));
+
+  btn?.addEventListener("click", () => {
+    const isDark = html.classList.contains("dark");
+    applyTheme(!isDark);
+    localStorage.setItem("theme", isDark ? "light" : "dark");
+  });
+</script>

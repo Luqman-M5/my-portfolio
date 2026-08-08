@@ -1,0 +1,75 @@
+---
+const edu = [
+  {
+    period:     "Sept 2024 — Sept 2028",
+    degree:     "BSc Computer Science",
+    school:     "Queen Mary University of London",
+    location:   "London, UK",
+    grade:      "Year 1: 78% — on track for First Class Honours",
+    modules: [
+      "Database Systems (SQL)",
+      "Software Engineering (UML, System Design)",
+      "Software Engineering Project (Requirements Elicitation, Domain Analysis)",
+      "GUI (Data Gathering, User Research)",
+    ],
+  },
+];
+---
+
+<section id="education" class="scroll-mt-28 px-6 py-20 border-t" style="border-color: var(--border);">
+  <div class="mx-auto max-w-5xl">
+
+    <p data-reveal class="font-mono text-xs uppercase tracking-widest mb-6" style="color: var(--accent);">
+      Education
+    </p>
+    <h2 data-reveal style="transition-delay: 60ms; color: var(--ink);" class="font-display text-2xl font-semibold sm:text-3xl mb-12">
+      Academic background.
+    </h2>
+
+    <div class="relative pl-6">
+      <div class="absolute left-0 top-2 bottom-0 w-px" style="background: var(--border);"></div>
+
+      {edu.map((e, i) => (
+        <div
+          data-reveal
+          style={`transition-delay: ${i * 80 + 100}ms; position: relative;`}
+        >
+          <span
+            class="absolute -left-[calc(1.1rem+0.5px)] top-2 h-3 w-3 rounded-full border-2"
+            style="background: var(--bg); border-color: var(--accent);"
+          ></span>
+
+          <div class="flex flex-wrap items-start justify-between gap-2 mb-4">
+            <div>
+              <h3 class="font-display text-lg font-semibold" style="color: var(--ink);">{e.degree}</h3>
+              <p class="font-mono text-sm mt-0.5" style="color: var(--accent);">{e.school}</p>
+            </div>
+            <div class="text-right">
+              <p class="font-mono text-xs" style="color: var(--muted);">{e.period}</p>
+              <p class="font-mono text-xs mt-0.5" style="color: var(--muted);">{e.location}</p>
+            </div>
+          </div>
+
+          <p class="font-mono text-sm mb-4" style="color: var(--ink);">{e.grade}</p>
+
+          <div>
+            <p class="font-mono text-xs uppercase tracking-widest mb-3" style="color: var(--muted);">
+              Relevant modules
+            </p>
+            <ul class="flex flex-wrap gap-2">
+              {e.modules.map((m) => (
+                <li
+                  class="rounded-full border px-3 py-1 font-mono text-xs"
+                  style="border-color: var(--border); color: var(--muted); background: var(--surface);"
+                >
+                  {m}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

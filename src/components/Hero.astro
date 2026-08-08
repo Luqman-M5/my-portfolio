@@ -1,0 +1,109 @@
+
+<section id="top" class="relative min-h-screen flex flex-col justify-center px-6 pt-28 pb-16 overflow-hidden">
+
+  <!-- Subtle warm grain texture overlay -->
+  <div
+    class="pointer-events-none absolute inset-0 -z-10 opacity-[0.025]"
+    style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22/></svg>'); background-size: 200px;"
+  ></div>
+
+  <div class="mx-auto w-full max-w-5xl">
+    <div class="flex flex-col-reverse gap-10 md:flex-row md:items-center md:justify-between">
+
+      <!-- Left: text content -->
+      <div class="flex-1">
+
+        <p data-hero="status" class="mb-5 inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-xs" style="border-color: var(--border); color: var(--muted);">
+          <span class="h-1.5 w-1.5 rounded-full" style="background: var(--accent);"></span>
+          Upcoming Research Intern at Hybrid
+        </p>
+
+        <h1 data-hero="name" class="font-display text-5xl font-semibold leading-tight sm:text-6xl md:text-7xl" style="color: var(--ink);">
+          Luqman<br />Muhammed <br />Kunju
+        </h1>
+
+        <p data-hero="role" class="mt-3 font-mono text-sm" style="color: var(--accent);">
+          Data & Research Analyst · Computer Science @ Queen Mary University of London
+        </p>
+
+        <p data-hero="bio" class="mt-6 max-w-lg text-base leading-relaxed" style="color: var(--muted);">
+          Second-year Computer Science student (78% Year 1 — on track for First Class)
+          who cares about turning messy, complex data into decisions people can actually
+          act on. From RFM pipelines across 4,000+ customer records to a full F1 season
+          analysed lap by lap.
+        </p>
+
+        <div data-hero="links" class="mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href="https://github.com/Luqman-M5"
+            target="_blank"
+            rel="noreferrer"
+            class="font-mono text-sm transition-colors"
+            style="color: var(--muted);"
+            onmouseover="this.style.color='var(--ink)'"
+            onmouseout="this.style.color='var(--muted)'"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/luqman-muhammed-kunju-3a3471306"
+            target="_blank"
+            rel="noreferrer"
+            class="font-mono text-sm transition-colors"
+            style="color: var(--muted);"
+            onmouseover="this.style.color='var(--ink)'"
+            onmouseout="this.style.color='var(--muted)'"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: circle photo -->
+      <div data-hero="photo" class="flex justify-center md:justify-end">
+        <div
+          class="relative h-50 w-50 flex-shrink-0 overflow-hidden rounded-full sm:h-75 sm:w-75"
+          style="border: 3px solid var(--accent); background: var(--surface);"
+        > 
+            <img
+              src="/images/Luqman.jpeg"
+              alt="Luqman Muhammed"
+              class="h-full w-full object-cover object-top"
+            />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // GSAP hero load-in — the one signature animation.
+  // Everything else on the page uses the lightweight IntersectionObserver reveal.
+  import { gsap } from "gsap";
+
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const targets = [
+    document.querySelector('[data-hero="status"]'),
+    document.querySelector('[data-hero="name"]'),
+    document.querySelector('[data-hero="role"]'),
+    document.querySelector('[data-hero="bio"]'),
+    document.querySelector('[data-hero="links"]'),
+    document.querySelector('[data-hero="photo"]'),
+  ].filter(Boolean);
+
+  if (reduced) {
+    gsap.set(targets, { opacity: 1, y: 0 });
+  } else {
+    gsap.set(targets, { opacity: 0, y: 18 });
+    gsap
+      .timeline({ defaults: { duration: 0.75, ease: "power3.out" } })
+      .to(targets[0], { opacity: 1, y: 0 }, 0.15)
+      .to(targets[1], { opacity: 1, y: 0 }, 0.3)
+      .to(targets[2], { opacity: 1, y: 0 }, 0.45)
+      .to(targets[3], { opacity: 1, y: 0 }, 0.55)
+      .to(targets[4], { opacity: 1, y: 0 }, 0.65)
+      .to(targets[5], { opacity: 1, y: 0 }, 0.2);
+  }
+</script>
