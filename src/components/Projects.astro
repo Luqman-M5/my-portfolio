@@ -1,11 +1,11 @@
 ---
-// EDIT: replace href and repo with your actual GitHub / live links
+import { Coverflow } from "./motion-ui/Coverflow.jsx";
+
 const projects = [
   {
     title:  "F1 2024 Performance Analytics",
     tools:  ["Python", "FastF1", "pandas", "NumPy", "Matplotlib"],
-    href:   "https://github.com/Luqman-M5/F1-EDA", // LINK: live demo or writeup
-    repo:   "#", // LINK: GitHub repo
+    href:   "https://github.com/Luqman-M5/F1-EDA",
     points: [
       "Built a full analysis of the 2024 Formula 1 season — lap-by-lap timing, qualifying results, and race data across all 24 rounds structured into three focused questions.",
       "Designed a Qualifying Consistency Score ranking every driver on average grid position, variance, and gap to pole — the top six matched the top six in the championship.",
@@ -17,7 +17,6 @@ const projects = [
     title:  "Customer Segmentation & RFM Analysis",
     tools:  ["PostgreSQL", "Python", "DBeaver", "pandas", "Matplotlib"],
     href:   "https://github.com/Luqman-M5/RFM-Analysis",
-    repo:   "#",
     points: [
       "Built an RFM scoring pipeline across 4,000+ customer records using SQL NTILE(5) window functions to score every customer on recency, frequency, and monetary value in one clean query.",
       "Grouped output into five commercially meaningful segments: Champions drove 45% of revenue while At Risk represented meaningful churn exposure if left unaddressed.",
@@ -29,7 +28,6 @@ const projects = [
     title:  "Sales Performance Analysis — Global Superstore",
     tools:  ["Power BI", "DAX", "Power Query"],
     href:   "https://app.notion.com/p/Global-Superstore-Sales-Performance-Analysis-Power-BI-31ade02ef26a80029925c75e20a643a4",
-    repo:   "#",
     points: [
       "Built a multi-table Power BI data model across 50,000+ rows using Power Query and DAX, structured to slice any metric by segment, region, or category without the numbers breaking.",
       "Found that Tables sub-category was losing money even on non-discounted orders — separating a unit economics failure from a discounting problem, which have completely different fixes.",
@@ -41,7 +39,6 @@ const projects = [
     title:  "Marketing Channel Efficiency Analysis",
     tools:  ["Excel", "Power Query", "Tableau"],
     href:   "https://app.notion.com/p/Marketing-Campaign-Performance-Channel-Efficiency-Analysis-311de02ef26a8020b5b9cdf304186383",
-    repo:   "#",
     points: [
       "Cleaned a messy multi-channel dataset with nulls, negative spend, and inconsistent dates; built derived metrics — CPA, CPC, CTR, CVR — from raw fields rather than unreliable pre-calculated columns.",
       "Built an Efficiency Index dividing each channel's conversion share by its spend share across $5.36M in budget — Email took 30.8% of spend while returning only 18.7% of conversions.",
@@ -62,57 +59,8 @@ const projects = [
       What I have built.
     </h2>
 
-    <div class="grid gap-6 sm:grid-cols-2">
-      {projects.map((p, i) => (
-        <article
-          data-reveal
-          style={`
-            transition-delay: ${i * 80 + 100}ms;
-            background: var(--surface);
-            border: 1px solid var(--border);
-          `}
-          class="group flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
-          onmouseover="this.style.borderColor='var(--accent)'"
-          onmouseout="this.style.borderColor='var(--border)'"
-        >
-          <h3 class="font-display text-lg font-semibold mb-3" style="color: var(--ink);">{p.title}</h3>
-
-          <!-- Tool tags -->
-          <div class="flex flex-wrap gap-1.5 mb-4">
-            {p.tools.map((t) => (
-              <span
-                class="rounded-full border px-2.5 py-0.5 font-mono text-[11px]"
-                style="border-color: var(--border); color: var(--muted);"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-
-          <!-- Bullet points -->
-          <ul class="flex flex-col gap-2 flex-1 mb-5">
-            {p.points.map((pt) => (
-              <li class="flex gap-2.5 text-sm leading-relaxed" style="color: var(--muted);">
-                <span class="mt-2 h-1 w-1 flex-shrink-0 rounded-full" style="background: var(--accent-lo); border: 1px solid var(--accent);"></span>
-                {pt}
-              </li>
-            ))}
-          </ul>
-
-          <!-- Links -->
-          <div class="flex gap-5 font-mono text-sm mt-auto pt-4" style="border-top: 1px solid var(--border);">
-            <a
-              href={p.href}
-              class="transition-colors"
-              style="color: var(--accent);"
-              onmouseover="this.style.opacity='0.7'"
-              onmouseout="this.style.opacity='1'"
-            >
-              View project
-            </a>
-          </div>
-        </article>
-      ))}
+    <div data-reveal style="transition-delay: 120ms;">
+      <Coverflow client:visible projects={projects} />
     </div>
 
   </div>

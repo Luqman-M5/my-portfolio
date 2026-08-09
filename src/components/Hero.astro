@@ -1,3 +1,7 @@
+---
+// add this import at the top of your Hero.astro frontmatter
+import { HeroPhoto } from "./HeroPhoto.jsx";
+---
 
 <section id="top" class="relative min-h-screen flex flex-col justify-center px-6 pt-28 pb-16 overflow-hidden">
 
@@ -61,16 +65,7 @@
 
       <!-- Right: circle photo -->
       <div data-hero="photo" class="flex justify-center md:justify-end">
-        <div
-          class="relative h-50 w-50 flex-shrink-0 overflow-hidden rounded-full sm:h-75 sm:w-75"
-          style="border: 3px solid var(--accent); background: var(--surface);"
-        > 
-            <img
-              src="/images/Luqman.jpeg"
-              alt="Luqman Muhammed"
-              class="h-full w-full object-cover object-top"
-            />
-        </div>
+        <HeroPhoto client:load src="/images/Luqman.jpeg" />
       </div>
 
     </div>
