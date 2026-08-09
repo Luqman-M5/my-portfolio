@@ -221,7 +221,7 @@ function Controls({ active, total, setActive }) {
 // ── Root export ────────────────────────────────────────────────────────────
 export function Coverflow({ projects }) {
   const [active, setActive] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 768px)");
@@ -239,7 +239,7 @@ export function Coverflow({ projects }) {
 
   return (
     <div onKeyDown={handleKey} tabIndex={0} style={{ outline: "none" }}>
-      {isMobile ? (
+      {isMobile === null ? null : isMobile ?  (
         <CoverflowMobile projects={projects} active={active} />
       ) : (
         <CoverflowDesktop projects={projects} active={active} setActive={setActive} />
