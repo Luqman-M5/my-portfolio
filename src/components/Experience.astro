@@ -1,31 +1,46 @@
 ---
-// Ordered newest-first. status: "upcoming" | "current" | "past"
-const roles = [
+const companies = [
   {
-    period:   "Oct 2025 — May 2026",
-    role:     "Student Demonstrator",
     company:  "Queen Mary University of London",
     location: "London, UK",
-    points: [
-      "Running lab sessions for 30–40 students across two second-year CS modules — helping people get unstuck on problems that look simple on a slide but get confusing fast when writing actual code.",
-      "Marking lab submissions with feedback that explains the thinking behind a better approach, not just a score.",
-      "Trusted to run sessions independently, which has pushed me to communicate clearly under pressure and adapt explanations depending on who I am talking to.",
+    roles: [
+      {
+        role:   "Student Content Creator",
+        period: "Oct 2025 — June 2026",
+        points: [
+          "Produces and edits video content for QMUL's official channels — with hands-on experience of TikTok as a content platform, understanding how content performs, what drives engagement, and how brands build audience on short-form video.",
+          "Manages end-to-end project delivery independently — scoping, producing, and delivering content to professional briefs set by senior staff, demonstrating ownership and proactive self-management in a fast-moving environment.",
+          "Collaborates with the QMUL marketing team across cross-functional workflows, demonstrating the communication and coordination skills needed to support operations across teams.",
+        ],
+      },
+      {
+        role:   "Student Demonstrator",
+        period: "Oct 2025 — May 2026",
+        points: [
+          "Running lab sessions for 30–40 students across two second-year CS modules — helping people get unstuck on problems that look simple on a slide but get confusing fast when writing actual code.",
+          "Marking lab submissions with feedback that explains the thinking behind a better approach, not just a score.",
+          "Trusted to run sessions independently, which has pushed me to communicate clearly under pressure and adapt explanations depending on who I am talking to.",
+        ],
+      },
     ],
   },
   {
-    period:   "Jul 2025 — Sept 2025",
-    role:     "Digital Marketing & Analyst Intern",
     company:  "Grain N Grace Private Ltd",
     location: "Kerala, India",
-    points: [
-      "Identified a 20% budget overspend across Meta and Google Ads, diagnosed the inefficiency channel by channel, and delivered a reallocation recommendation that directly influenced budget decisions.",
-      "Monitored campaign performance daily across CTR, CPC, and conversion metrics, applying iterative targeting adjustments to improve efficiency throughout the internship.",
-      "Leveraged Google Analytics 4 to distinguish high-performing organic content from underperforming pages, feeding findings directly into content and promotion strategy.",
-      "Produced weekly Excel performance reports translating cross-channel KPIs into clear summaries for non-technical stakeholders.",
+    roles: [
+      {
+        role:   "Digital Marketing & Analyst Intern",
+        period: "Jul 2025 — Sept 2025",
+        points: [
+          "Identified a 20% budget overspend across Meta and Google Ads, diagnosed the inefficiency channel by channel, and delivered a reallocation recommendation that directly influenced budget decisions.",
+          "Monitored campaign performance daily across CTR, CPC, and conversion metrics, applying iterative targeting adjustments to improve efficiency throughout the internship.",
+          "Leveraged Google Analytics 4 to distinguish high-performing organic content from underperforming pages, feeding findings directly into content and promotion strategy.",
+          "Produced weekly Excel performance reports translating cross-channel KPIs into clear summaries for non-technical stakeholders.",
+        ],
+      },
     ],
   },
 ];
-
 ---
 
 <section id="experience" class="scroll-mt-28 px-6 py-20 border-t" style="border-color: var(--border);">
@@ -38,47 +53,53 @@ const roles = [
       Where I have worked.
     </h2>
 
-    <!-- Timeline -->
-    <div class="relative pl-8">
-      <!-- Vertical line -->
-      <div class="absolute left-0 top-2 bottom-0 w-px" style="background: var(--border);"></div>
-
-      <ul class="flex flex-col gap-10">
-        {roles.map((r, i) => (
-          <li
-            data-reveal
-            style={`transition-delay: ${i * 100 + 100}ms; position: relative;`}
+    <div class="flex flex-col gap-6">
+      {companies.map((c, ci) => (
+        <div
+          data-reveal
+          style={`transition-delay: ${ci * 100 + 100}ms; background: var(--surface); border: 1px solid var(--border);`}
+          class="rounded-2xl overflow-hidden"
+        >
+          <!-- Company header -->
+          <div
+            class="flex items-center justify-between px-6 py-4 border-b"
+            style="border-color: var(--border);"
           >
-            <!-- Timeline dot -->
-            <span
-              class="absolute -left-[calc(1.1rem+0.5px)] top-2 h-3 w-3 rounded-full border-2"
-              style={`background: var(--bg); border-color: var(--accent);`}
-            ></span>
-
-            <!-- Header row -->
-            <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
-              <div>
-                <h3 class="font-display text-lg font-semibold" style="color: var(--ink);">{r.role}</h3>
-                <p class="font-mono text-sm mt-0.5" style="color: var(--accent);">{r.company}</p>
-              </div>
-              <div class="text-right">
-                <p class="font-mono text-xs" style="color: var(--muted);">{r.period}</p>
-                <p class="font-mono text-xs mt-0.5" style="color: var(--muted);">{r.location}</p>
-              </div>
+            <div>
+              <p class="font-display font-semibold text-base" style="color: var(--ink);">{c.company}</p>
+              <p class="font-mono text-xs mt-0.5" style="color: var(--muted);">{c.location}</p>
             </div>
+          </div>
 
-            <!-- Bullet points -->
-            <ul class="flex flex-col gap-2">
-              {r.points.map((point) => (
-                <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--muted);">
-                  <span class="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full" style="background: var(--border);"></span>
-                  {point}
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
+          <!-- Roles -->
+          <div class="flex flex-col divide-y" style="border-color: var(--border);">
+            {c.roles.map((r) => (
+              <div class="px-6 py-5">
+
+                <!-- Role header -->
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                  <div>
+                    <h3 class="font-display text-lg font-semibold" style="color: var(--ink);">{r.role}</h3>
+                    <p class="font-mono text-xs mt-1" style="color: var(--muted);">{r.period}</p>
+                  </div>
+                </div>
+
+                <!-- Bullets -->
+                <ul class="flex flex-col gap-2">
+                  {r.points.map((point) => (
+                    <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--muted);">
+                      <span class="mt-2 h-1 w-1 flex-shrink-0 rounded-full" style="background: var(--accent);"></span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+
+              </div>
+            ))}
+          </div>
+
+        </div>
+      ))}
     </div>
 
   </div>
