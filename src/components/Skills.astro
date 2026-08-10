@@ -1,4 +1,6 @@
 ---
+import tailwindcss from "@tailwindcss/vite";
+
 // One unified grid — no category splits, no competency tags.
 // Simple Icons CDN: https://cdn.simpleicons.org/[slug]
 // Brand colours are kept — they help people recognise tools instantly.
@@ -13,11 +15,12 @@ const tools = [
   { name: "GitHub",            icon: "https://cdn.simpleicons.org/github" },
   { name: "Power BI",          icon: "https://img.icons8.com/?size=100&id=3sGOUDo9nJ4k&format=png&color=000000" },
   { name: "Tableau",           icon: "https://img.icons8.com/?size=100&id=9Kvi1p1F0tUo&format=png&color=000000" },
-  { name: "Excel",             icon: "https://img.icons8.com/?size=100&id=JChkA69vF7Lo&format=png&color=000000" },
   { name: "Google Analytics",  icon: "https://img.icons8.com/?size=100&id=lIzGTzIFMKym&format=png&color=000000" },
   { name: "Google Ads",        icon: "https://img.icons8.com/?size=100&id=ui4CTPMMDCFh&format=png&color=000000" },
   { name: "Meta Ads",          icon: "https://cdn.simpleicons.org/meta" },
   { name: "DBeaver",           icon: "https://img.icons8.com/?size=100&id=kjaF4LlvyR6g&format=png&color=000000" },
+  { name: "React",             icon: "https://img.icons8.com/?size=100&id=asWSSTBrDlTW&format=png&color=000000"},
+  { name: "Astro",             icon: "https://img.icons8.com/?size=100&id=lckHFUP7nJhG&format=png&color=000000"},
 ];
 ---
 
@@ -38,8 +41,7 @@ const tools = [
     <div
       data-reveal
       style="transition-delay: 100ms;"
-      class="grid grid-cols-4 gap-4 sm:grid-cols-5 md:grid-cols-7"
-    >
+      class="grid grid-cols-4 gap-4 sm:grid-cols-5 md:grid-cols-5" > 
       {tools.map((t) => (
         <div
           class="group flex flex-col items-center gap-2.5 rounded-xl p-4 transition-all duration-200"
