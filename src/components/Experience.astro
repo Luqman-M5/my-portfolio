@@ -66,7 +66,7 @@ const companies = [
             style="border-color: var(--border);"
           >
             <div>
-              <p class="font-display font-semibold text-base" style="color: var(--ink);">{c.company}</p>
+              <p class="font-display font-semibold text-xl" style="color: var(--ink);">{c.company}</p>
               <p class="font-mono text-xs mt-0.5" style="color: var(--muted);">{c.location}</p>
             </div>
           </div>
@@ -87,7 +87,7 @@ const companies = [
                 <!-- Bullets -->
                 <ul class="flex flex-col gap-2">
                   {r.points.map((point) => (
-                    <li class="flex gap-3 text-sm leading-relaxed" style="color: var(--muted);">
+                    <li class="flex gap-3 text-base leading-relaxed" style="color: var(--muted);">
                       <span class="mt-2 h-1 w-1 flex-shrink-0 rounded-full" style="background: var(--accent);"></span>
                       {point}
                     </li>
