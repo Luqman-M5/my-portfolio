@@ -6,6 +6,7 @@ const projects = [
     title:  "F1 2024 Performance Analytics",
     tools:  ["Python", "FastF1", "pandas", "NumPy", "Matplotlib"],
     href:   "https://github.com/Luqman-M5/F1-EDA",
+    linkLabel: "View Code",
     points: [
       "EDA across all 24 rounds - analysed lap timing, qualifying results, race performance, and constructor progression throughout the season",
       "Qualifying Consistency Score across average grid position, variance, and gap to pole - top six matched the championship standings.",
@@ -17,6 +18,7 @@ const projects = [
     title:  "Customer Segmentation & RFM Analysis",
     tools:  ["PostgreSQL", "Python", "DBeaver", "pandas", "Matplotlib"],
     href:   "https://github.com/Luqman-M5/RFM-Analysis",
+    linkLabel: "View Code",
     points: [
       "Built RFM scoring across 4,000+ customers - used SQL NTILE(5) to score recency, frequency, and monetary value at scale.",
       "Grouped output into five commercially meaningful segments - Champions drove 45% of revenue while At Risk represented churn exposure.",
@@ -26,24 +28,26 @@ const projects = [
   },
   {
     title:  "Sales Performance Analysis — Global Superstore",
-    tools:  ["Power BI", "DAX", "Power Query"],
+    tools:  ["Power BI", "DAX", "Power Query", "Notion"],
     href:   "https://app.notion.com/p/Global-Superstore-Sales-Performance-Analysis-Power-BI-31ade02ef26a80029925c75e20a643a4",
+    linkLabel: "View Report",
     points: [
-      "Built a multi-table Power BI data model across 50,000+ rows using Power Query and DAX, structured to slice any metric by segment, region, or category without the numbers breaking.",
-      "Found that Tables sub-category was losing money even on non-discounted orders — separating a unit economics failure from a discounting problem, which have completely different fixes.",
-      "Surfaced that the Consumer segment generated 49.8% of revenue but 51.1% of profit, making it structurally more valuable than its revenue share suggested.",
-      "Identified a consistent 87% Q4 revenue spike — flagged that the business was not planning inventory, logistics, or staffing around a pattern repeating every single year.",
+      "Built a multi-table Power BI model across 50,000+ rows using Power Query and DAX, enabling flexible metric slicing.",
+      "Found Tables losing money even on non-discounted orders - proving a structural unit economics failure rather than discounting alone.",
+      "Consumer segment generated 49.8% of revenue but 51.1% of profit, making it more valuable than its sales contribution.",
+      "Identified consistent 87% Q4 revenue spike - and flagged that inventory, logistics, and staffing were not planned around it.",
     ],
   },
   {
     title:  "Marketing Channel Efficiency Analysis",
-    tools:  ["Excel", "Power Query", "Tableau"],
+    tools:  ["Excel", "Power Query", "Tableau", "Notion"],
     href:   "https://app.notion.com/p/Marketing-Campaign-Performance-Channel-Efficiency-Analysis-311de02ef26a8020b5b9cdf304186383",
+    linkLabel: "View Report",
     points: [
-      "Cleaned a messy multi-channel dataset with nulls, negative spend, and inconsistent dates; built derived metrics — CPA, CPC, CTR, CVR — from raw fields rather than unreliable pre-calculated columns.",
-      "Built an Efficiency Index dividing each channel's conversion share by its spend share across $5.36M in budget — Email took 30.8% of spend while returning only 18.7% of conversions.",
-      "Used Pivot Tables to quantify the gap between cost and delivery, turning a qualitative feeling that Email underperformed into something concrete enough to argue for reallocation.",
-      "Delivered a Tableau dashboard with KPI cards and colour-coded efficiency deltas so the audience could see immediately which channels to scale and which to cut.",
+      "Cleaned messy campaign data with nulls, negative spend, and inconsistent dates — derived CPA, CPC, CTR, and CVR reliably.",
+      "Built an Efficiency Index across $5.36M spend - Email used 30.8% of budget while generating only 18.7% conversions.",
+      "Used Pivot Tables to compare spend and conversion shares - quantified channel inefficiencies and identified clear budget reallocation opportunities.",
+      "Delivered a Tableau dashboard with KPI cards and efficiency indicators - showing which channels to scale, optimise, or cut.",
     ],
   },
 ];
