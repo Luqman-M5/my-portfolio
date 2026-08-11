@@ -68,8 +68,9 @@ const schools = [
   {e.grades.map((g) => (
     <div class="relative">
       <span class="absolute -left-[calc(1.1rem+0.5px)] top-1.25 h-3 w-3 rounded-full border-2" style="background: var(--surface); border-color: var(--accent);"></span>
-      <div class="flex items-baseline gap-2">
-        <span class="font-display text-base font-semibold" style="color: var(--ink);">{g.label}</span>
+      <div class="flex items-baseline gap-3">
+        <span class="font-display text-base font-semibold" style="color: var(--muted);">{g.label}</span>
+        <span style="color: var(--border);">—</span>
         <span class="font-display text-base font-semibold" style="color: var(--ink);">{g.score}</span>
       </div>
     </div>
