@@ -47,6 +47,7 @@ const {
     <slot />
     <script src="../scripts/reveal.js"></script>
   </body>
+
   <body>
     <!-- Page loader — hides once everything is loaded -->
 <div id="page-loader" class="fixed inset-0 z-[999] flex items-center justify-center" style="background: var(--bg);">
@@ -67,5 +68,110 @@ const {
     setTimeout(() => loader.style.display = "none", 400);
   });
 </script>
+  </body>
+  
+  <body>
+    <!-- Custom cursor -->
+<div id="cursor-dot" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: var(--accent);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, opacity 0.3s ease, width 0.2s ease, height 0.2s ease;
+  opacity: 0;
+"></div>
+
+<div id="cursor-ring" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--accent);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease, opacity 0.3s ease, width 0.2s ease, height 0.2s ease;
+  opacity: 0;
+"></div>
+
+<script>
+  const dot  = document.getElementById("cursor-dot");
+  const ring = document.getElementById("cursor-ring");
+
+  if (window.matchMedia("(pointer: fine)").matches) {
+    let mouseX = 0, mouseY = 0;
+    let ringX  = 0, ringY  = 0;
+    let visible = false;
+
+    function animateRing() {
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      if (ring) {
+        ring.style.left = ringX + "px";
+        ring.style.top  = ringY + "px";
+      }
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    document.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (dot) {
+        dot.style.left = e.clientX + "px";
+        dot.style.top  = e.clientY + "px";
+      }
+      if (!visible) {
+        visible = true;
+        if (dot)  dot.style.opacity = "1";
+        if (ring) ring.style.opacity = "0.6";
+      }
+    });
+
+    document.addEventListener("mouseover", (e) => {
+      // Cast to Element first so .closest() is available
+      const el = e.target as Element | null;
+      if (el?.closest("a, button, [role='button']")) {
+        if (dot)  { dot.style.width = "16px";  dot.style.height = "16px";  dot.style.opacity = "0.4"; }
+        if (ring) { ring.style.width = "52px"; ring.style.height = "52px"; ring.style.opacity = "0.3"; }
+      }
+    });
+
+    document.addEventListener("mouseout", (e) => {
+      const el = e.target as Element | null;
+      if (el?.closest("a, button, [role='button']")) {
+        if (dot)  { dot.style.width = "10px";  dot.style.height = "10px";  dot.style.opacity = "1"; }
+        if (ring) { ring.style.width = "36px"; ring.style.height = "36px"; ring.style.opacity = "0.6"; }
+      }
+    });
+
+    document.addEventListener("mouseleave", () => {
+      if (dot)  dot.style.opacity = "0";
+      if (ring) ring.style.opacity = "0";
+      visible = false;
+    });
+
+    document.addEventListener("mouseenter", () => {
+      if (dot)  dot.style.opacity = "1";
+      if (ring) ring.style.opacity = "0.6";
+      visible = true;
+    });
+
+    // Hide default cursor
+    document.body.style.cursor = "none";
+    const style = document.createElement("style");
+    style.textContent = `*, a, button { cursor: none !important; }`;
+    document.head.appendChild(style);
+  }
+</script>
+
   </body>
 </html>
