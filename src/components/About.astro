@@ -1,67 +1,44 @@
 ---
-// Contact is intentionally subtle here — just an email link, not a CTA section.
 ---
 
 <section id="about" class="scroll-mt-28 px-6 py-20 border-t" style="border-color: var(--border);">
   <div class="mx-auto max-w-5xl">
 
     <p data-reveal class="font-mono text-xs uppercase tracking-widest mb-6" style="color: var(--accent);">
-      About
+      About Me
     </p>
 
-    <div class="grid gap-10 md:grid-cols-[1.3fr_1fr]">
+    <div data-reveal style="transition-delay: 80ms; max-width: 640px;">
+      <h2 class="font-display text-2xl font-semibold sm:text-3xl" style="color: var(--ink);">
+        Who am I.
+      </h2>
 
-      <div data-reveal style="transition-delay: 80ms;">
-        <h2 class="font-display text-2xl font-semibold sm:text-3xl" style="color: var(--ink);">
-          I care about what the data is actually saying.
-        </h2>
-        <p class="mt-5 leading-relaxed" style="color: var(--muted);">
-          I'm Luqman — a second-year CS student at Queen Mary University of London.
-          My work sits at the intersection of data analysis, research, and clear
-          communication: taking complex information and making it genuinely useful
-          for the person who has to act on it.
+      <p class="mt-5 text-lg leading-relaxed" style="color: var(--muted);">
+        I'm Luqman Muhammed Kunju originally from India, currently studying Computer Science at Queen Mary University of London.
+        I find myself drawn to the messier side of data and research work. The cleaning, the questioning,
+        the structured thinking it takes to turn something complicated into something a person can use.
+      </p>
+      <p class="mt-4 text-lg leading-relaxed" style="color: var(--muted);">
+        Most of my time outside of lectures goes into building things, analysing datasets, digging into research
+        problems, and figuring out how to communicate what I find clearly. I'm interested in both the technical
+        side of working with data and the research process behind it.
+      </p>
+
+      <p class="mt-6 text-lg leading-relaxed" style="color: var(--muted);">
+        If you want to discuss a project or an opportunity
         </p>
-        <p class="mt-4 leading-relaxed" style="color: var(--muted);">
-          I'm not currently looking for new roles — I'm heading to Hybrid in Bristol
-          in September 2026 for a 12-month research internship. But I'm always happy
-          to talk about data, projects, or anything else worth discussing.
-        </p>
-
-        <!-- Subtle contact — email only, no big CTA -->
-        <p class="mt-6 font-mono text-sm" style="color: var(--muted);">
-          Reach me at
-          <a
-            href="mailto:luqmanmuhammed007@duck.com"
-            class="transition-colors"
-            style="color: var(--accent);"
-            onmouseover="this.style.textDecoration='underline'"
-            onmouseout="this.style.textDecoration='none'"
-          >
-            luqmanmuhammed007@duck.com
-          </a>
-        </p>
-      </div>
-
-      <!-- Quick-facts card -->
-      <div
-        data-reveal
-        style="transition-delay: 160ms; background: var(--surface); border: 1px solid var(--border);"
-        class="self-start rounded-2xl p-6 flex flex-col gap-5"
-      >
-        {[
-          { label: "Currently",  value: "2nd year BSc Computer Science" },
-          { label: "University", value: "Queen Mary University of London" },
-          { label: "Year 1",     value: "78% — on track for First Class" },
-          { label: "Next",       value: "Research Intern · Hybrid, Bristol · Sept 2026" },
-          { label: "Based in",   value: "London, UK" },
-        ].map(({ label, value }) => (
-          <div>
-            <p class="font-mono text-xs uppercase tracking-widest mb-1" style="color: var(--muted);">{label}</p>
-            <p class="text-sm font-medium" style="color: var(--ink);">{value}</p>
-          </div>
-        ))}
-      </div>
-
+         <div class="flex items-center gap-4 mt-4 text-lg" >  
+        <a href="mailto:luqmanmuhammed007@duck.com"
+          class="inline-flex items-center gap-2.5 transition-opacity hover:opacity-70"
+          style="color: var(--accent);"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.910 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+          </svg>
+          Get In Touch.
+        </a>
+         </div>
     </div>
+
   </div>
 </section>
