@@ -8,7 +8,7 @@ interface Props {
 
 const {
   title = "Luqman Muhammed Kunju",
-  description = "Luqman Muhammed Kunju — CS student at QMUL, incoming Research Intern at Hybrid, Bristol. Turning messy data into clear decisions.",
+  description = "Luqman Muhammed Kunju - CS student at QMUL from India, drawn to the messier side of data and research, turning complex problems into something people can use.",
 } = Astro.props;
 ---
 
@@ -28,6 +28,22 @@ const {
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+
+    <!-- SEO -->
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://luqmanmuhammedkunju.cc.cd/" />
+
+    <!-- Open Graph — controls how your link looks when shared on LinkedIn etc -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://luqmanmuhammedkunju.cc.cd/" />
+    <meta property="og:title"       content="Luqman Muhammed — Data & Research Analyst" />
+    <meta property="og:description" content="CS student at QMUL. I turn complex data and research into clear decisions." />
+    <meta property="og:image"       content="https://luqmanmuhammedkunju.cc.cd/og-image.jpg" />
+
+    <!-- Twitter/X card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Luqman Muhammed — Data & Research Analyst" />
+    <meta name="twitter:description" content="CS student at QMUL. I turn complex data and research into clear decisions." />
 
     <!--
       Dark mode: read preference from localStorage BEFORE the page paints
